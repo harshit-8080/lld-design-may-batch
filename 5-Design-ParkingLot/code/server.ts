@@ -21,18 +21,8 @@ amb_parking_lot.saveToEntranceGates(entrance_gate_1);
 amb_parking_lot.saveToEntranceGates(entrance_gate_2);
 amb_parking_lot.saveToEntranceGates(entrance_gate_3);
 
-const creditCard = new CreditCard(); // not a good code....
-
-const exis_gate_1 = new ExitGate(
-  generateRandomId(),
-  amb_parking_lot,
-  creditCard,
-);
-const exis_gate_2 = new ExitGate(
-  generateRandomId(),
-  amb_parking_lot,
-  creditCard,
-);
+const exis_gate_1 = new ExitGate(generateRandomId(), amb_parking_lot);
+const exis_gate_2 = new ExitGate(generateRandomId(), amb_parking_lot);
 
 amb_parking_lot.saveToExitGates(exis_gate_1);
 amb_parking_lot.saveToExitGates(exis_gate_2);
@@ -62,6 +52,7 @@ console.log("ticket ", ticket);
 amb_parking_lot.saveTickets(ticket);
 
 setTimeout(() => {
-  exis_gate_1.processVehicleExit(ticket);
+  const creditCard = new CreditCard();
+  exis_gate_1.processVehicleExit(ticket, creditCard);
   console.log("ticket ", ticket);
 }, 5000);

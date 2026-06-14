@@ -5,7 +5,6 @@ export abstract class Gate {
   constructor(
     private gateId: string,
     protected parkingLot: ParkingLot,
-    protected paymentMethod: IPaymentMethod = null,
     private isOperational: boolean = true,
   ) {}
 

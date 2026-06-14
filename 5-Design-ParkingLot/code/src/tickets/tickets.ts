@@ -1,4 +1,4 @@
-import { TICKET_STATUS } from "../enum";
+import { PAYEMNT_METHOD, TICKET_STATUS } from "../enum";
 
 export class Ticket {
   constructor(
@@ -8,6 +8,7 @@ export class Ticket {
     private entryTime: Date = new Date(),
     private exitTime: Date = null,
     private ticketStatus: TICKET_STATUS = TICKET_STATUS.PENDING,
+    private paymentMethod: PAYEMNT_METHOD = null,
     private amount: number = null,
   ) {}
 
@@ -38,6 +39,10 @@ export class Ticket {
   setExitTime() {
     this.exitTime = new Date();
     console.log("exit time", this.exitTime);
+  }
+
+  setPaymentMethod(method: PAYEMNT_METHOD) {
+    this.paymentMethod = method;
   }
 
   updateTicketStatus(status: TICKET_STATUS) {
